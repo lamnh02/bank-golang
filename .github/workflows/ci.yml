@@ -9,6 +9,7 @@ on:
 jobs:
 
   test:
+    name: Test
     runs-on: ubuntu-latest
 
     services:
@@ -24,14 +25,15 @@ jobs:
           --health-timeout 5
 
     steps:
-    - name: checkout code into Go module
-      uses: actions/checkout@v3
 
     - name: Set up Go
       uses: actions/setup-go@v3
       with:
         go-version: 1.18
 
+    - name: checkout code into Go module
+      uses: actions/checkout@v3
+      
     - name: Run migrations
       run: make migrateup
 
