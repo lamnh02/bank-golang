@@ -14,7 +14,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:12-alpine
+        image: postgres:12
         env:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: secret
@@ -22,7 +22,7 @@ jobs:
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
-          --health-timeout 5
+          --health-timeout 5s
 
     steps:
 
