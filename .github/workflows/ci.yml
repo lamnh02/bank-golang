@@ -14,7 +14,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:12
+        image: postgres:12-alpine
         env:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: secret
@@ -33,7 +33,7 @@ jobs:
 
     - name: checkout code into Go module
       uses: actions/checkout@v3
-      
+
     - name: Run migrations
       run: make migrateup
 
